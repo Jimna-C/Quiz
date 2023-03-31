@@ -1,0 +1,356 @@
+@import url(https://fonts.googleapis.com/css?family=Exo+2:400,700,500,300);
+body{
+    padding: 0;
+    margin: 0;
+    font-family: "sans-serif";
+}
+button{
+    cursor: pointer;
+}
+.header{
+    background: #0088CC;
+    display: flex;
+    color: #fff;
+    padding: 16px;
+    justify-content: space-between;
+    font-size: 16px;
+}
+a{
+    text-decoration: none !important;
+    
+}
+.main-content{
+    margin: 0 20px;
+}
+.options{
+    border: 1px solid #c6e0f7;
+    width: 35%;
+    padding: 10px;
+    background: aliceblue;
+}
+.buttons{
+    display: flex;
+    width: 22%;
+    justify-content: space-between;
+}
+.buttons button{
+    border: 1px solid #04AA6D;
+    background: #04AA6D;
+    color: #fff;
+    padding: 10px;
+    border-radius: 2px;
+    font-size: 15px;
+    cursor: pointer;
+    width: 48%;
+}
+.buttons button:hover{
+    border: 1px solid #04aa6d94;
+    background: #04aa6d94;
+}
+.panel-ans{
+    margin: 7px 20px;
+    color:#000
+}
+.panel-sub{
+    border-top: 1px solid #0000003d;
+    border-bottom: 1px solid #0000003d;
+    padding: 10px;
+}
+.txt-wt{
+    font-weight: 600;
+}
+.main-header{
+    width: 100%;
+    display: flex;
+}
+.header-left{
+    width: 20%;
+    height: 668px;
+    background: #000000b0;
+    color: #fff;
+}
+.header-left ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 17px;
+    font-weight: 100;
+}
+.header-left ul li{
+    padding: 10px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.header-left ul li span{
+    margin-left: 16px;
+}
+.header-right{
+    width: 80%;
+    color: #fff;
+}
+.icon-display{
+    display: flex;
+    width: 20%;
+    justify-content: space-between;
+}
+.header-right-nav{
+    height: 60px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 17px;
+    font-weight: 500;
+    background: #008ffb;
+}
+.header-right-content{
+    background-color: #f6f7fb;
+    height: 587px;
+    color: #000;
+    position: absolute;
+    width: 80%;
+}
+.blank{
+    background: #000000cc;
+    height: 60px;
+}
+i{
+    cursor: pointer;
+}
+.add-que{
+    margin: 2%;
+    background: #fff;
+    padding: 6px 10px;
+    height: auto;
+    border-radius: 2px;
+    color: #4c4d52;
+}
+.add-que h1{
+    font-size: 20px;
+    margin: 0;
+}
+.add-que h3{
+    font-weight: 400;
+    font-size: 17px;
+}
+.add-que label{
+    font-size: 14px;
+}
+.add-que textarea{
+    width: 96%;
+    margin: 1%;
+    border: 1px solid #008ffb;
+    height: 87px;
+    margin-bottom: 25px;
+}
+.enteroptions{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-bottom: 25px;
+}
+.enteroptions div{
+    width: 50%;
+}
+.enteroptions input{
+    padding: 10px;
+    border-radius: 2px;
+    border: 1px solid #008ffb;
+    width: 90%;
+    margin: 1%;
+}
+input:hover{
+    outline: none !important;
+}
+.optionscheck{
+    display: flex;
+    width: 100%;
+    margin-bottom: 25px;
+}
+.optionscheck div{
+    width: 25%;
+}
+.sub-btn{
+    text-align: center;
+    padding: 10px;
+    color: #fff;
+    background: #088fbc;
+    border: none;
+    border-radius: 2px;
+    font-size: 13px;
+    width: 16%;
+}
+.sub-btn:hover{
+    background: #088fbc94; 
+}
+
+.next.disable,
+.previous.disable {
+  cursor: none;
+  opacity: .5;
+}
+.section {
+display: none;
+}
+
+.section.active {
+display: block;
+}
+
+.active {
+opacity: 1 !important;
+}
+.buttons{
+    margin-left: 20px;
+}
+.submit{
+    border: 1px solid #0088cc;
+    background: #0088cc;
+    padding: 10px;
+    border-radius: 2px;
+    color: #fff;
+    width: 15%;
+    font-size: 17px;
+    cursor: pointer;
+    text-align: center;
+}
+.submit:hover{
+    border: 1px solid #0088cc81;
+    background: #0088cc81;
+}
+.start{
+    text-align: center;
+}
+.start button{
+    border: 1px solid #0088cc;
+    background: #0088cc;
+    padding: 10px;
+    border-radius: 2px;
+    color: #fff;
+    width: 15%;
+    font-size: 17px;
+    cursor: pointer;
+}
+.start button:hover{
+    border: 1px solid #0088cc81;
+    background: #0088cc81;
+}
+
+/* .modal-body{
+    z-index: 999;
+    left: 345px;
+    border-radius: 4px;
+    position: absolute;
+    bottom: 300px;
+    text-align: center;
+    align-items: center;
+    width: 50%;
+    height: 132px;
+    overflow: auto;
+    background-color: #fff;
+    box-shadow: 0 4px 7px 2px #f3f3f3;
+}
+.modal-body p{
+    font-weight: 700;
+    font-family: sans-serif;
+    font-size: 17px;
+}
+
+.modal-body .yes{
+    color: #fff;
+    background: #2699fb;
+    border: 1px solid #2699fb;
+    border-radius: 2px;
+    opacity: 1 !important;
+    width: 20%;
+    height: 31px;
+    cursor: pointer;
+    margin-left: 27px;
+}
+.modal-body .no{
+    color: #fff;
+    background: rgb(156, 7, 7);
+    border: 1px solid rgb(156, 7, 7);
+    border-radius: 2px;
+    opacity: 1 !important;
+    width: 20%;
+    height: 31px;
+    cursor: pointer;
+} */
+
+#subbtn{
+    text-align: center;
+    position: relative;
+    top: 130px;
+}
+
+#result{
+    text-align: center;
+}
+.msg-alert{
+    color: red;
+    font-size: 13px;
+}
+.color{
+    background: #fff;
+    color: #000;
+    border-right: 1px solid #000;
+}
+
+.header-left ul li:hover{
+    background: #fff;
+    color: #000;
+    border-right: 1px solid #000;
+}
+.header-left ul li:active{
+    background: #fff;
+    color: #000;
+    border-right: 1px solid #000;
+}
+.output-notes p{
+    border: 1px solid #0088cc;
+    width: 25%;
+    padding: 5px;
+    background: #0088cc;
+    color: #fff;
+    font-weight: 600;
+}
+.output-notes{
+    text-align: -webkit-center;
+}
+
+.output-notes h2{
+    border: 1px solid #1f00cc;
+    width: 25%;
+    padding: 5px;
+    background: #1f00cc;
+    color: #fff;
+    box-shadow: 1px 1px 1px 3px #1f00cc;
+}
+
+@media screen and (max-width: 768px) {
+    .start button{
+        width: 26%;
+    }
+    .options{
+        width:85%;
+    }
+    .buttons{
+        width:58%;
+    }
+    .buttons button{
+        width:40%;
+    }
+    .submit{
+        width: 26%;   
+    }
+    .output-notes p{
+        width:74%;
+    }
+    .output-notes h2{
+        width:72%;
+    }
+  }
+

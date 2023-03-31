@@ -1,0 +1,176 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link type="text/css" rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="https://requirejs.org/docs/release/2.3.5/minified/require.js"></script>
+</head>
+<body>
+  <section>
+    <nav>
+        <div class="main-header">
+            <div class="header-left">
+            <ul>
+                <li class="blank"><span class="bl-sp">Admin Panel</span></li>
+                <li><i class="fa fa-tachometer" aria-hidden="true"></i><span class="bl-sp">Dashboard</span></li>
+                <li><i class="fa fa-question-circle" aria-hidden="true"></i><span class="bl-sp">Questions</span></li>
+                <li onclick="addque()"><i class="fa fa-plus" aria-hidden="true"></i><span class="bl-sp">Add Questions</span></li>
+            </ul>
+            </div>
+            <div class="header-right" id="header-right">
+                <div class="header-right-nav">
+                    <div class="align-right-icon" id="toggle-left" onclick="toggleLeft()" style="display: none;">
+                    <i class="fa fa-align-right" aria-hidden="true"></i>
+                    </div>
+                    <div class="icon-display">
+                    <div class="justify-icon" id="toggle-menu" onclick="toggleMenu()">
+                    <i class="fa fa-align-justify" aria-hidden="true"></i>
+                    </div>
+                    <div></div>
+                    </div>
+                    <div>Notification</div>
+                </div>
+                <section class="panel-ans" style="display:none">
+                  <div class="panel-sub">
+                     <p><span class="txt-wt">Q what</span></p>
+                     <p><span class="txt-wt">Correct answer:</span>option1</p>
+                     <p><span class="txt-wt">score:</span>1</p>
+                  </div>
+              </section>
+                <div class="header-right-content" id="main-content">
+                  <section id="add-que" class="add-que">
+                    <h1>Adding to Quiz</h1>
+                    <div class="add-que-sec">
+                      <form name="add-form" id="add-form" action="/add-form" method="POST">
+                             <h3>Enter the detail of the new question</h3><br>
+                             <label class="txt-wt">Write qusetion content</label><br>
+                             <textarea id="question" name="question" rows="4" cols="50"></textarea><br>
+                             <div class="enteroptions">
+                              <div>
+                             <label class="txt-wt">Enter option1</label><br>
+                             <input type="text" name="option1" id="option1"><br>
+                             </div>
+                              <div>
+                             <label class="txt-wt">Enter option2</label><br>
+                             <input type="text" name="option2" id="option2"><br>
+                             </div>
+                              <div>
+                             <label class="txt-wt">Enter option3</label><br>
+                             <input type="text" name="option3" id="option3"><br>
+                             </div>
+                              <div>
+                             <label class="txt-wt">Enter option4</label><br>
+                             <input type="text" name="option4" id="option4"><br>
+                             </div>
+                             </div>
+                             <label class="txt-wt">Correct option</label><br><br>
+                             <div class="optionscheck">
+                              <div>
+                             <input type="checkbox" id="optioncheck" name="optioncheck" value="check1">
+                              <label for="Option1"> Option1</label><br>
+                              </div>
+                              <div>
+                              <input type="checkbox" id="optioncheck" name="optioncheck" value="check2">
+                              <label for="Option1"> Option2</label><br>
+                              </div>
+                              <div>
+                              <input type="checkbox" id="optioncheck" name="optioncheck" value="check3">
+                              <label for="Option1"> Option3</label><br>
+                              </div>
+                              <div>
+                              <input type="checkbox" id="optioncheck" name="optioncheck" value="check4">
+                              <label for="Option1"> Option4</label><br>
+                              </div>
+                              </div>
+                              <button type="submit" class="sub-btn">Submit</button>
+                      </form>
+                    </div>
+                  </section>
+                </div>
+        </div>
+      
+    </nav>
+  </section>
+
+
+
+  
+<script>
+
+   function toggleMenu(){
+    document.getElementsByClassName("header-right")[0].style.width = "95%";
+    document.getElementsByClassName("header-left")[0].style.width = "5%";
+    document.getElementsByClassName("header-right-content")[0].style.width = "95%";
+    document.getElementsByClassName("justify-icon")[0].style.display = "none";
+    document.getElementsByClassName("align-right-icon")[0].style.display = "block";
+    // document.getElementsByClassName("bl-sp")[0].style.display = "none";
+    $(".bl-sp").css("display","none");
+   };
+function toggleLeft(){
+    document.getElementsByClassName("header-right")[0].style.width = "80%";
+    document.getElementsByClassName("header-right-content")[0].style.width = "80%";
+    document.getElementsByClassName("header-left")[0].style.width = "20%";
+    document.getElementsByClassName("justify-icon")[0].style.display = "block";
+    document.getElementsByClassName("align-right-icon")[0].style.display = "none";
+    
+    // document.getElementsByClassName("bl-sp")[0].style.display = "block";
+    $(".bl-sp").css("display","block");
+};
+
+// function addque(){
+// var addques=`<section id="add-que" class="add-que">
+//               <h1>Adding to Quiz</h1>
+//               <div class="add-que-sec">
+//                 <form name="add-form" id="add-form" action="/add-form" method="POST">
+//                        <h3>Enter the detail of the new question</h3><br>
+//                        <label class="txt-wt">Write qusetion content</label><br>
+//                        <textarea id="question" name="question" rows="4" cols="50"></textarea><br>
+//                        <div class="enteroptions">
+//                         <div>
+//                        <label class="txt-wt">Enter option1</label><br>
+//                        <input type="text" name="option1" id="option1"><br>
+//                        </div>
+//                         <div>
+//                        <label class="txt-wt">Enter option2</label><br>
+//                        <input type="text" name="option2" id="option2"><br>
+//                        </div>
+//                         <div>
+//                        <label class="txt-wt">Enter option3</label><br>
+//                        <input type="text" name="option3" id="option3"><br>
+//                        </div>
+//                         <div>
+//                        <label class="txt-wt">Enter option4</label><br>
+//                        <input type="text" name="option4" id="option4"><br>
+//                        </div>
+//                        </div>
+//                        <label class="txt-wt">Correct option</label><br><br>
+//                        <div class="optionscheck">
+//                         <div>
+//                        <input type="checkbox" id="optioncheck" name="optioncheck" value="check1">
+//                         <label for="Option1"> Option1</label><br>
+//                         </div>
+//                         <div>
+//                         <input type="checkbox" id="optioncheck" name="optioncheck" value="check2">
+//                         <label for="Option1"> Option2</label><br>
+//                         </div>
+//                         <div>
+//                         <input type="checkbox" id="optioncheck" name="optioncheck" value="check3">
+//                         <label for="Option1"> Option3</label><br>
+//                         </div>
+//                         <div>
+//                         <input type="checkbox" id="optioncheck" name="optioncheck" value="check4">
+//                         <label for="Option1"> Option4</label><br>
+//                         </div>
+//                         </div>
+//                         <button type="submit" class="sub-btn">Submit</button>
+//                 </form>
+//               </div>
+//   </section>`
+// $("#main-content").html(addques);
+// }
+
+</script>
+</body>
+</html>

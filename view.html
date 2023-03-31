@@ -1,0 +1,181 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type=module src="./index.js"></script>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+</head>
+<body>
+    <section>
+        <nav>
+            <div class="header">
+            <div>Quiz</div>
+            <div>Total Questions:10</div>
+            </div>
+        </nav>
+    </section>
+    <section class="main-content section active" id="quepallet">
+      <div class="panel">
+        <h1>1.Inside which element do we put the javascript?</h1>
+        <div class="options">
+        <input type="radio" id="html" name="fav_language" value="HTML">
+        <label for="html">script</label>
+        </div><br>
+        <div class="options">
+        <input type="radio" id="css" name="fav_language" value="CSS">
+        <label for="css">javascript</label>
+        </div><br>
+        <div class="options">
+        <input type="radio" id="javascript" name="fav_language" value="JavaScript">
+        <label for="javascript">scripting</label>
+        </div><br>
+        <div class="options">
+        <input type="radio" id="javascript" name="fav_language" value="JavaScript">
+        <label for="javascript">js</label>
+        </div>
+      </div><br>
+      <div class="buttons">
+         <button class="previous" id="prevBtn" onclick="tabbedContent.goPrev()">Previous</button>
+         <button class="next" id="nextBtn" onclick="tabbedContent.goNext()">Next</button>
+      </div>
+    </section>
+    <!-- <section class="main-content section" id="quepallet">
+      <div class="panel">
+        <h1>2.Please choose?</h1>
+        <div class="options">
+        <input type="radio" id="html" name="fav_language" value="HTML">
+        <label for="html">script</label>
+        </div><br>
+        <div class="options">
+        <input type="radio" id="css" name="fav_language" value="CSS">
+        <label for="css">javascript</label>
+        </div><br>
+        <div class="options">
+        <input type="radio" id="javascript" name="fav_language" value="JavaScript">
+        <label for="javascript">scripting</label>
+        </div><br>
+        <div class="options">
+        <input type="radio" id="javascript" name="fav_language" value="JavaScript">
+        <label for="javascript">js</label>
+        </div>
+      </div><br>
+      <div class="buttons">
+         <button class="previous" id="prevBtn" onclick="tabbedContent.goPrev()">Previous</button>
+         <button class="next" id="nextBtn" onclick="tabbedContent.goNext()">Next</button>
+      </div>
+    </section>
+    <section class="main-content section" id="quepallet">
+      <div class="panel">
+        <h1>3.Please select?</h1>
+        <div class="options">
+        <input type="radio" id="html" name="fav_language" value="HTML">
+        <label for="html">script</label>
+        </div><br>
+        <div class="options">
+        <input type="radio" id="css" name="fav_language" value="CSS">
+        <label for="css">javascript</label>
+        </div><br>
+        <div class="options">
+        <input type="radio" id="javascript" name="fav_language" value="JavaScript">
+        <label for="javascript">scripting</label>
+        </div><br>
+        <div class="options">
+        <input type="radio" id="javascript" name="fav_language" value="JavaScript">
+        <label for="javascript">js</label>
+        </div>
+      </div><br>
+      <div class="buttons">
+         <button class="previous" id="prevBtn" onclick="tabbedContent.goPrev()">Previous</button>
+         <button class="next" id="nextBtn" onclick="tabbedContent.goNext()">Next</button>
+      </div>
+    </section> -->
+
+    <section class="panel-ans" style="display: none;">
+        <div class="panel-sub">
+           <p><span class="txt-wt">Q 22 How do you declare a javascript variable</span></p>
+           <p><span class="txt-wt">Correct answer:</span>var carname</p>
+           <p><span class="txt-wt">score:</span>0</p>
+        </div>
+        <div class="panel-sub">
+            <p><span class="txt-wt">Q 22 How do you declare a javascript variable</span></p>
+            <p><span class="txt-wt">Correct answer:</span>var carname</p>
+            <p><span class="txt-wt">score:</span>0</p>
+         </div>
+         <div class="panel-sub">
+            <p><span class="txt-wt">Q 22 How do you declare a javascript variable</span></p>
+            <p><span class="txt-wt">Correct answer:</span>var carname</p>
+            <p><span class="txt-wt">score:</span>0</p>
+         </div>
+         <div class="panel-sub">
+            <p><span class="txt-wt">Q 22 How do you declare a javascript variable</span></p>
+            <p><span class="txt-wt">Correct answer:</span>var carname</p>
+            <p><span class="txt-wt">score:</span>0</p>
+         </div>
+         <div class="panel-sub">
+            <p><span class="txt-wt">Q 22 How do you declare a javascript variable</span></p>
+            <p><span class="txt-wt">Correct answer:</span>var carname</p>
+            <p><span class="txt-wt">score:</span>0</p>
+         </div>
+         <div class="panel-sub">
+            <p><span class="txt-wt">Q 22 How do you declare a javascript variable</span></p>
+            <p><span class="txt-wt">Correct answer:</span>var carname</p>
+            <p><span class="txt-wt">score:</span>0</p>
+         </div>
+    </section>
+<script>
+             class TabbedContent {
+  constructor() {
+    this.sections = document.querySelectorAll(".section");
+    this.nextButton = document.querySelector("#nextBtn");
+    this.prevButton = document.querySelector("#prevBtn");
+    this.current = 0;
+  }
+
+ 
+  toggleSections() {
+    this.sections.forEach(function(section) {
+      section.classList.remove('active');
+    });
+    this.sections[this.current].classList.add("active");
+  }
+
+  togglePrev() {
+    const method = this.current == 0 ? 'add' : 'remove';
+    this.prevButton.classList[method]("disable");
+  }
+
+  toggleNext() {
+    const method = this.current == this.sections.length - 1 ? 'add' : 'remove';
+    this.nextButton.classList[method]("disable");
+  }
+
+  goNext() {
+    if (this.current < this.sections.length - 1) {
+      this.current++
+    }
+    this.toggleSections();
+    this.toggleNext();
+    this.togglePrev();
+  }
+
+  goPrev() {
+    if (this.current > 0) {
+      this.current--
+    }
+    this.toggleSections();
+    this.toggleNext();
+    this.togglePrev();
+  }
+
+}
+
+const tabbedContent = new TabbedContent();
+</script>
+</body>
+</html>
+
+
+
+

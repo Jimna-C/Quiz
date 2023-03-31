@@ -1,0 +1,301 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type=module src="./index.js"></script>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+</head>
+<body>
+    <section>
+        <nav>
+            <div class="header">
+            <div>Quiz</div>
+            
+            </div>
+        </nav>
+    </section>
+    <section id="main-sec">
+    <section>
+      <section id="start-section">
+        <div class="start">
+          <h2>Ready to Challenge Yourself With HTML Quiz Questions?</h2>
+          <h4>Well-curated MCQ questions on HTML to test your knowledge and skills!</h4>
+          <div>
+            <p>Total Number of HTML Quiz Questions: <%=data.length%></p>
+              
+              <p>Marks for Each Correct Answer:1</p>
+              
+              <p>Negative Marking:No</p>
+              <button onclick="starttest()">Start test</button>
+          </div>
+          
+
+        </div>
+      </section>
+    </section>
+    <form name="quizform" id="quizform" action="javascript:void(0)" onsubmit="formsubmit()"
+    style="display:none;">
+    <section class="main-content section active" id="quepallet">
+      <div class="panel" id="panel-radio">
+       <h2><%= (1) %>/<%=data.length%></h2>
+        <h1><%= data[0].question%></h1>
+        <div class="options">
+        <input type="radio" id="answer" name="answer0" value="option1">
+        <label for="html"><%= data[0].option1%></label>
+        </div><br>
+        <div class="options">
+        <input type="radio" id="answer" name="answer0" value="option2">
+        <label for="css"><%= data[0].option2%></label>
+        </div><br>
+        <div class="options">
+        <input type="radio" id="answer" name="answer0" value="option3">
+        <label for="javascript"><%= data[0].option3%></label>
+        </div><br>
+        <div class="options">
+        <input type="radio" id="answer" name="answer0" value="option4">
+        <label for="javascript"><%= data[0].option4%></label>
+        <input type="hidden" id="correct_option" value="<%= data[0].correct%>" name="correct_option0">
+        </div>
+      </div><br>
+    </section>
+    <% if(data.length){ for(var i = 1; i< data.length; i++) {%>
+    <section class="main-content section" id="quepallet">
+      <div class="panel" id="panel-radio">
+        <h2><%= (i+1) %>/<%=data.length%></h2>
+        <h1><%= data[i].question%></h1>
+        <div class="options">
+        <input type="radio" id="answer" name="answer<%=i%>" value="option1">
+        <label for="html"><%= data[i].option1%></label>
+        </div><br>
+        <div class="options">
+        <input type="radio" id="answer" name="answer<%=i%>" value="option2">
+        <label for="css"><%= data[i].option2%></label>
+        </div><br>
+        <div class="options">
+        <input type="radio" id="answer" name="answer<%=i%>" value="option3">
+        <label for="javascript"><%= data[i].option3%></label>
+        </div><br>
+        <div class="options">
+        <input type="radio" id="answer" name="answer<%=i%>" value="option4">
+        <label for="javascript"><%= data[i].option4%></label>
+        <input type="hidden" id="correct_option" value="<%= data[i].correct%>" name="correct_option<%=i%>">
+        </div>
+      </div><br>
+    </section>
+    <% } }else{ %>
+
+       No data ever existed.
+        
+        <% } %>
+
+      
+
+        <div class="" id="subbtn" style="display:none">
+          <button type="submit" onclick="result()" id="submitform" class="submit">Submit Test</button>
+          <!-- <div class="modal-body">
+            <p class="">Are you sure you want to submit your test?</p>
+                <button class="no"> No </button>
+                <button class="yes" type="submit" id="submitform">Submit</button>
+        </div> -->
+    
+         </div>
+
+      </form>
+      
+
+      <div class="buttons" id="quiz-buttons" style="display:none;">
+        <button class="previous" id="prevBtn" onclick="tabbedContent.goPrev()">Previous</button>
+        <button class="next" id="nextBtn" onclick="tabbedContent.goNext()">Next</button>
+     </div>
+   
+
+         <section class="panel-ans" id="panel-ans" style="display:none">
+          <% if(data.length){ for(var i = 0; i< data.length; i++) {%>
+        <div class="panel-sub">
+           <p><span class="txt-wt">Q<%= (i+1) %>. <%= data[i].question%></span></p>
+           <p><span class="txt-wt">Correct answer:</span>
+            <%if (data[i].correct=="option1"){%>
+              <p><%= data[i].option1%></p>
+              <% } %>
+              <%if (data[i].correct=="option2"){%>
+                <p><%= data[i].option2%></p>
+                <% } %>
+                <%if (data[i].correct=="option3"){%>
+                  <p><%= data[i].option3%></p>
+                  <% } %>
+                  <%if (data[i].correct=="option4"){%>
+                    <p><%= data[i].option4%></p>
+                    <% } %>
+          </p>
+           <p><span class="txt-wt">score:</span><%= data[i].mark%></p>
+        </div>
+        <% } }else{ %>
+
+          No data ever existed.
+           
+           <% } %>
+   
+    </section>
+  </section>
+
+  <section id="result" style="display:none">
+    <div class="output">
+      <h2>Your Result</h2>
+      <img src="https://www.wscubetech.com/images/trophy-icon.png"/>
+        <div class="output-notes">
+          <p>Total Questions: <%=data.length%></p>
+          
+          <p>Correct: <span id="correct"></span></p>
+          <p>Incorrect: <span id="incorrect"></span></p>
+          <p>Unanswered: <span id="unaswered"></span></p>
+          <h2>Marks Scored: <span id="marks"></span></h2>
+        </div>
+          
+   
+      
+
+    </div>
+  </section>
+     
+<script>
+var sectionlength;
+             class TabbedContent {
+  constructor() {
+    this.sections = document.querySelectorAll(".section");
+    this.nextButton = document.querySelector("#nextBtn");
+    this.prevButton = document.querySelector("#prevBtn");
+    this.current = 0;
+  }
+
+ 
+  toggleSections() {
+    this.sections.forEach(function(section) {
+      section.classList.remove('active');
+    });
+    this.sections[this.current].classList.add("active");
+  }
+
+  togglePrev() {
+    const method = this.current == 0 ? 'add' : 'remove';
+    this.prevButton.classList[method]("disable");
+  }
+
+  toggleNext() {
+    const method = this.current == this.sections.length - 1 ? 'add' : 'remove';
+    this.nextButton.classList[method]("disable");
+  }
+
+  goNext() {
+    if (this.current < this.sections.length - 1) {
+      this.current++;
+    }
+    this.toggleSections();
+    this.toggleNext();
+    this.togglePrev();
+
+var testElement = document.getElementById('nextBtn');
+if(testElement.classList.contains("disable")){
+ 
+  $("#subbtn").show();
+  // $('#main-sec').css('pointer-events', 'none');
+  // $('#main-sec').css('opacity', '0.5');
+}
+else{
+  $("#subbtn").hide();
+  // $('#main-sec').css('pointer-events', 'visible');
+  // $('#main-sec').css('opacity', '1');
+}
+  }
+
+  goPrev() {
+    if (this.current > 0) {
+      this.current--
+    }
+    this.toggleSections();
+    this.toggleNext();
+    this.togglePrev();
+    $("#subbtn").hide();
+  }
+
+}
+const tabbedContent = new TabbedContent();
+
+
+var data_api={};
+var marks=0;
+var unaswered=0;
+var wrong=0;
+function formsubmit(){
+  var j=0;
+        var newFormData = [];
+    $('#quizform section').each(function(i) {
+      var tb = $(this);
+      var obj = {};
+      tb.find('input[type="hidden"]').each(function() {
+      obj[this.name] = this.value;
+      });
+  $('input[name="answer'+j+'"]:checked').each(function(){
+    obj[this.name] = this.value;
+  })
+    
+      newFormData.push(obj);
+      j++;
+    });
+
+    data_api["formdata"] = newFormData;
+
+   for(var i=0;i<newFormData.length;i++){
+    console.log(newFormData[i]);
+    
+   if(newFormData[i]['answer'+i]==newFormData[i]['correct_option'+i]){
+    console.log("correct");
+    marks++
+   }
+   else if((Object.keys(newFormData[i]).length)!=2){
+    console.log("unaswered");
+    unaswered++;
+   }
+   else if(newFormData[i]['answer'+i]!=newFormData[i]['correct_option'+i]){
+    console.log("incorrect");
+    wrong++;
+   }
+  
+   
+   }
+   $("#unaswered").text(unaswered);
+   $("#correct").text(marks);
+   $("#marks").text(marks);
+   $("#incorrect").text(wrong);
+
+  //  document.getElementById("answered").textContent=marks;
+   //document.getElementById("unaswered").textContent=unaswered;
+  //  document.getElementById("marks").textContent=marks;
+  //  document.getElementById("incorrect").textContent=wrong;
+   
+  console.log(marks,unaswered,wrong);
+  
+}
+
+
+function starttest(){
+  $("#start-section").hide();
+  $("#quizform").show();
+  $("#quiz-buttons").show();
+}
+
+function result(){
+  $("#result").show();
+  $("#start-section").hide();
+  $("#quizform").hide();
+  $("#quiz-buttons").hide();
+}
+
+</script>
+</body>
+</html>
+
+
+
